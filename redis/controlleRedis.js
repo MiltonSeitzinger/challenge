@@ -55,7 +55,27 @@ function ifExists(key){
     });
   })
 }
+
+/**
+ * @function getValueByKey -> obtiene el valor de la key
+ * @param key
+ * @return -> data by key
+ */
+function getValueByKey(key){
+  return new Promise ((resolve, reject) => {
+    if(key) {
+      client.get(key, (err, value) => {
+        if (err) {
+          reject(err);
+          return false;
+        }
+        resolve(value);
+      })
+    }
+  })
+}
 module.exports = {
   addData: addData,
-  exists: ifExists
+  exists: ifExists,
+  getValueByKey: getValueByKey
 }
