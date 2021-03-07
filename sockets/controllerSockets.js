@@ -1,4 +1,4 @@
-
+var redisStore= require('../redis/controlleRedis');
 
 module.exports =(io) => {
   /**
@@ -13,9 +13,17 @@ module.exports =(io) => {
     ** Si guardo correctamente notifica al cliente.
     ** Si hubo un error al guardar, notificara al cliente. 
     */
-    socket.on('new-message', (data) => {
-      console.log('los datos son: ', data)
-      socket.emit('messages', data);
+    socket.on('new-message', async (data) => {
+      console.log('los datos son: ', data);
+      redisStore.addData(data)
+      .then((store) => {
+        socket.emit('messages', 
+        {message: store, data:data}
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     });
 
 

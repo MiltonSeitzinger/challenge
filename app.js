@@ -5,6 +5,7 @@ var io = require('socket.io')(server);
 var { PORT } = require('./config/config-server')
 
 require('./sockets/controllerSockets')(io);
+require('./redis/controlleRedis');
 
 app.use(express.static('public'));
 

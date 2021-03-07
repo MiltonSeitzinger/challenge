@@ -1,8 +1,12 @@
 var socket = io.connect('http://localhost:3000');
 
 socket.on('messages', (data) => {
-  alert('Nuevo dato agregado');
-  render(data);
+  if(data.message == 'OK') {
+    alert('Se agrego un nuevo dato');
+    render(data.data);
+  } else {
+    alert(data.message);
+  }
 })
 
 /**
@@ -31,19 +35,11 @@ function restartValue(){
 function addMessage() {
   var message = {
     key: document.getElementById('key').value,
-    value: document.getElementById('value').value//.split(',')
+    value: document.getElementById('value').value
   };
   if(!message.key || !message.value) {
     alert("Debe rellenar todos los campos");
   } else {
-    let values = []
-    if(message.value.includes(',')){
-      message.value = message.value.split(',')
-      message.value.forEach(element => {
-        values.push(element.trim());
-      });
-    message.value = values;
-    }
     socket.emit('new-message', message);
   }
     return false;
