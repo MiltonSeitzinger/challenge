@@ -14,7 +14,6 @@ module.exports =(io) => {
     ** Si hubo un error al guardar, notificara al cliente. 
     */
     socket.on('new-message', async (data) => {
-      console.log('los datos son: ', data);
       redisStore.addData(data)
       .then((store) => {
         socket.emit('messages', 

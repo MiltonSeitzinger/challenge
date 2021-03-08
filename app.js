@@ -19,3 +19,5 @@ router(app);
 server.listen(PORT, () => {
   console.log('Server running in port ', PORT);
 })
+
+module.exports = server;
