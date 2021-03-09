@@ -1,7 +1,5 @@
 # Challenge
 
-__
-
 ## Como ejecutar 🚀
 
 _Para ejecutar el servidor nos ubicamos en la carpeta del proyecto y ejecutamos el comando:_
@@ -43,7 +41,7 @@ _Las herramientas que se utilizó para crear este proyecto_
 * [NodeJs](https://nodejs.org/en/) - Node. js es un entorno JavaScript que nos permite ejecutar en el servidor, de manera asíncrona, con una arquitectura orientada a eventos y basado en el motor V8 de Google.
 * [Redis](https://redis.io/) - Redis es un almacén de estructura de datos en memoria de código abierto.
 * [Socket.io](https://socket.io/) - Socket.IO es una biblioteca de JavaScript para aplicaciones web en tiempo real.
-* [Grunt] (https://gruntjs.com/) - Grunt es un ejecutador de tareas, se utiliza para la automatización de tests. 
+* [Grunt](https://gruntjs.com/) - Grunt es un ejecutador de tareas, se utiliza para la automatización de tests. 
 
 ### Consideraciones 📄
 
