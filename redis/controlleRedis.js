@@ -1,6 +1,6 @@
 var redis = require('redis');
-var client = redis.createClient(PORT, HOST);
 var { PORT, HOST } = require('../config/config-redis');
+var client = redis.createClient({host: 'redis'});
 
 /**
  * Conexion con redis
