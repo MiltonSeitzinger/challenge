@@ -28,7 +28,7 @@ module.exports =(io) => {
 
 
     /**
-    ** Realiza la desconecion del socket. 
+    ** Realiza la desconeccion del socket. 
     */
     socket.on('disconnect', () =>{
       console.log('New socket disconnect: ', socket.id);

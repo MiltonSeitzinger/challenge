@@ -4,6 +4,11 @@ var express = require('express');
 var router = express.Router();
 var controller = require('./controller');
 
+/**
+ * endpoint GET el cual llama al controlador pasando como parametro la key.
+ * Si la consulta la hace correctamente renderiza el html correspondiente.
+ * Si hay un error en el servidor retorna un status 500 
+ */
 router.get('/:key',(req, res) => {
   let key = req.params.key;
   if(key) {

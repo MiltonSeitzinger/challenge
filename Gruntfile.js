@@ -1,13 +1,6 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-      /* Configure uglify
-      uglify: {
-        build: {
-        src: 'app.js',
-        dest: 'app.min.js'  
-        }
-      },*/
-			/* Configure  jshint */
+			/* Configure  jshint para comprobar la sintaxis de los archivos */
 			jshint: {
 				files: ['tests/*.js','components/values/*.js', 'redis/*.js', 'config/*.js', 'sockets/*.js', 'app.js', 'routes.js'],
 				options: {
@@ -16,11 +9,10 @@ module.exports = function(grunt) {
 					}
 				}
 			},
-      // Configure a mochaTest task
+      // Configure a mocha-test para realizar el test correspondiente
       mochaTest : {
         test : {
           options : {
-            //reporter : 'mocha-sonar-reporter', 
             reporter : 'spec',
             timeout : 5000,
             quiet : false 

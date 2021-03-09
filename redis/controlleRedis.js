@@ -41,7 +41,7 @@ function addData(data) {
 }
 
 /**
- * 
+ * @function que comprueba si existe la key en redis
  * @param key
  * @return si existe o no la key. 
  */
