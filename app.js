@@ -1,8 +1,9 @@
+/* jshint esversion: 8 */
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var { PORT } = require('./config/config-server')
+var { PORT } = require('./config/config-server');
 var router = require('./routes');
 var bodyParser = require('body-parser');
 
@@ -18,6 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 router(app);
 server.listen(PORT, () => {
   console.log('Server running in port ', PORT);
-})
+});
 
 module.exports = server;

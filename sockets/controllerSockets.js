@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 var redisStore= require('../redis/controlleRedis');
 
 module.exports =(io) => {
@@ -22,7 +23,7 @@ module.exports =(io) => {
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
     });
 
 
@@ -31,7 +32,7 @@ module.exports =(io) => {
     */
     socket.on('disconnect', () =>{
       console.log('New socket disconnect: ', socket.id);
-    })
+    });
   
-  })
-}
+  });
+};

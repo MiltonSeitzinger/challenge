@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 var redisStore = require('../redis/controlleRedis');
 
 var express = require("express"),
@@ -23,7 +24,7 @@ io.on("connection", function(socket) {
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
     });
 });
 

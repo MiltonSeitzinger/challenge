@@ -1,2 +1,2 @@
-exports.HOST = 'localhost'
-exports.PORT = 6379
+exports.HOST = 'localhost';
+exports.PORT = 6379;

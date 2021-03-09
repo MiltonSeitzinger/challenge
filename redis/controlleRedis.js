@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 var redis = require('redis');
 var { PORT, HOST } = require('../config/config-redis');
 var client = redis.createClient({host: 'redis'});
@@ -8,7 +9,7 @@ var client = redis.createClient({host: 'redis'});
 
 client.on('connect', () => {
     console.log('Conectado con redis');
-})
+});
 
 /**
  * function addData -> almacena clave-valor proveniente del cliente en redis.
@@ -28,15 +29,15 @@ function addData(data) {
           reject(err);
           return false;
         } else {
-          console.log('dataStored: ', dataStored)
+          console.log('dataStored: ', dataStored);
           resolve(dataStored);
         }
-      })
+      });
     })
     .catch((err) => {
       reject(err);
-    })
-  })
+    });
+  });
 }
 
 /**
@@ -51,9 +52,9 @@ function ifExists(key){
         reject(err);
         return false;
       }
-      resolve(results)
+      resolve(results);
     });
-  })
+  });
 }
 
 /**
@@ -70,12 +71,12 @@ function getValueByKey(key){
           return false;
         }
         resolve(value);
-      })
+      });
     }
-  })
+  });
 }
 module.exports = {
   addData: addData,
   exists: ifExists,
   getValueByKey: getValueByKey
-}
+};

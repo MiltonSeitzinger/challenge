@@ -5,7 +5,7 @@ var router = express.Router();
 var controller = require('./controller');
 
 router.get('/:key',(req, res) => {
-  let key = req.params.key
+  let key = req.params.key;
   if(key) {
     controller.getValueKey(key)
     .then((value) => {
@@ -18,7 +18,7 @@ router.get('/:key',(req, res) => {
     .catch(err => {
       console.log('Hubo un error nae: ', err);
       res.status(500).send({ err: err });
-    })
+    });
   }
 });
 

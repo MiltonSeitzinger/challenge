@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 var request = require('supertest');
 var expect = require('expect');
 var server = require("./index"),
@@ -15,7 +16,7 @@ var app = require('../app');
 let numbers = "0123456789";
 let caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let text;
-let keyUnique = 'key'
+let keyUnique = 'key';
 for (let i=0; i<5; i++) {
   keyUnique +=numbers.charAt(Math.floor(Math.random()*numbers.length)); 
 }
@@ -69,45 +70,45 @@ describe("Conexion y envios de mensajes de socket", function() {
 /** GET VALORES */
 describe('GET valores por key', () => { 
 	it('GET valores por key existente', done => {
-		let path = '/key/'+keyUnique
+		let path = '/key/'+keyUnique;
 		request(app)
 		.get(path)
 		.set('Accept', 'application/json')
 		.expect(200)
 		.end((err, res) => {
-			if(err) {return done(err)} else {
+			if(err) {return done(err);} else {
       expect(res.status).toEqual(200);
-			done()
+			done();
       }
 		});
 	});
   it('GET valores por key no existente', done => {
-		let path = '/key/'+'0000'
+		let path = '/key/'+'0000';
 		request(app)
 		.get(path)
 		.set('Accept', 'application/json')
 		.expect(200)
 		.end((err, res) => {
-			if(err) {return done(err)} else {
+			if(err) {return done(err);} else {
 
       expect(res.status).toEqual(200);
-			done()
-      };
+			done();
+      }
 		});
 	});
 });
 describe('Endpoint no existente', () => { 
 	it('No existe el endpoint', done => {
-		let path = '/enpoint/notfound/'
+		let path = '/enpoint/notfound/';
 		request(app)
 		.get(path)
 		.set('Accept', 'application/json')
 		.expect(404)
 		.end((err, res) => {
-			if(err) {return done(err)} else {
+			if(err) {return done(err);} else {
       expect(res.status).toEqual(404);
-			done()
+			done();
       }
 		});
 	});
-})
+});
